@@ -1,0 +1,498 @@
+# ==============================================================================
+# 2D Classification (CLS)
+# ==============================================================================
+MIMIC-CXR-LT_cls:
+    dataset_parser: image_cls
+    dataset_name: MIMIC-CXR-LT_cls
+    dataset_split: test
+    image_root: 2D_Images/MIMIC_CXR
+    data_path: 2D_Task/MIMIC-CXR-T/mimic-cxr-lt-test.json
+    eval_type: local
+
+ISIC-2019_cls:
+    dataset_parser: image_cls
+    dataset_name: ISIC-2019_cls
+    dataset_split: test
+    image_root: 2D_Images/ISIC-2019/test/ISIC_2019_Test_Input
+    data_path: 2D_Task/ISIC-2109/ISIC_2019_test.json
+    eval_type: local
+
+Brain-Tumor-MRI_cls:
+    dataset_parser: image_cls
+    dataset_name: Brain-Tumor-MRI_cls
+    dataset_split: test
+    image_root: 2D_Images/Brain-Tumor-MRI/datasets/Testing
+    data_path: 2D_Task/Brain-Tumor-MRI/Brain_Tumor_MRI_test.json
+    eval_type: local
+
+BloodMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: BloodMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/BloodMNIST/output_images/test
+    data_path: 2D_Task/BloodMNIST/BloodMNIST_test.json
+    eval_type: local
+
+DermaMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: DermaMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/DermaMNIST/output_images/test
+    data_path: 2D_Task/DermaMNIST/DermaMNIST_test.json
+    eval_type: local
+
+OCTMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: OCTMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/OCTMNIST/output_images/test
+    data_path: 2D_Task/OCTMNIST/OCTMNIST_test.json
+    eval_type: local
+
+OrganAMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: OrganAMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/OrganAMNIST/output_images/test
+    data_path: 2D_Task/OrganAMNIST/OrganAMNIST_test.json
+    eval_type: local
+
+OrganCMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: OrganCMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/OrganCMNIST/output_images/test
+    data_path: 2D_Task/OrganCMNIST/OrganCMNIST_test.json
+    eval_type: local
+
+OrganSMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: OrganSMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/OrganSMNIST/output_images/test
+    data_path: 2D_Task/OrganSMNIST/OrganSMNIST_test.json
+    eval_type: local
+
+PathMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: PathMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/PathMNIST/output_images/test
+    data_path: 2D_Task/PathMNIST/PathMNIST_test.json
+    eval_type: local
+
+TissueMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: TissueMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/TissueMNIST/output_images/test
+    data_path: 2D_Task/TissueMNIST/TissueMNIST_test.json
+    eval_type: local
+
+Kvasir_cls:
+    dataset_parser: image_cls
+    dataset_name: Kvasir_cls
+    dataset_split: test
+    image_root: 2D_Images/kvasir-dataset/datasets/test
+    data_path: 2D_Task/Kvasir/Kvasir_test.json
+    eval_type: local
+
+APTOS_cls:
+    dataset_parser: image_cls
+    dataset_name: APTOS_cls
+    dataset_split: test
+    image_root: 2D_Images/APTOS/train_images
+    data_path: 2D_Task/APTOS/APTOS_test.json
+    eval_type: local
+
+ChestMNIST_cls:
+    dataset_parser: image_cls
+    dataset_name: ChestMNIST_cls
+    dataset_split: test
+    image_root: 2D_Images/ChestMNIST/output_images/test
+    data_path: 2D_Task/ChestMNIST/ChestMNIST_test.json
+    eval_type: local
+
+# ==============================================================================
+# 2D Image-to-Image Retrieval (I2I)
+# ==============================================================================
+MIMIC-CXR-LT_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: MIMIC-CXR-LT_i2i
+    dataset_split: test
+    image_root: 2D_Images/MIMIC_CXR
+    data_path: 2D_Task/MIMIC-CXR-T/mimic-cxr-lt-i2i-test.json
+    eval_type: local
+
+ISIC-2019_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: ISIC-2019_i2i
+    dataset_split: test
+    image_root: 2D_Images/ISIC-2019/test/ISIC_2019_Test_Input
+    data_path: 2D_Task/ISIC-2109/ISIC_2019_i2i_test.json
+    eval_type: local
+
+Brain-Tumor-MRI_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: Brain-Tumor-MRI_i2i
+    dataset_split: test
+    image_root: 2D_Images/Brain-Tumor-MRI/datasets/Testing
+    data_path: 2D_Task/Brain-Tumor-MRI/Brain_Tumor_MRI_i2i_test.json
+    eval_type: local
+
+BloodMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: BloodMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/BloodMNIST/output_images/test
+    data_path: 2D_Task/BloodMNIST/BloodMNIST_i2i_test.json
+    eval_type: local
+
+DermaMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: DermaMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/DermaMNIST/output_images/test
+    data_path: 2D_Task/DermaMNIST/DermaMNIST_i2i_test.json
+    eval_type: local
+
+OCTMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: OCTMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/OCTMNIST/output_images/test
+    data_path: 2D_Task/OCTMNIST/OCTMNIST_i2i_test.json
+    eval_type: local
+
+OrganAMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: OrganAMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/OrganAMNIST/output_images/test
+    data_path: 2D_Task/OrganAMNIST/OrganAMNIST_i2i_test.json
+    eval_type: local
+
+OrganCMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: OrganCMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/OrganCMNIST/output_images/test
+    data_path: 2D_Task/OrganCMNIST/OrganCMNIST_i2i_test.json
+    eval_type: local
+
+OrganSMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: OrganSMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/OrganSMNIST/output_images/test
+    data_path: 2D_Task/OrganSMNIST/OrganSMNIST_i2i_test.json
+    eval_type: local
+
+PathMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: PathMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/PathMNIST/output_images/test
+    data_path: 2D_Task/PathMNIST/PathMNIST_i2i_test.json
+    eval_type: local
+
+TissueMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: TissueMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/TissueMNIST/output_images/test
+    data_path: 2D_Task/TissueMNIST/TissueMNIST_i2i_test.json
+    eval_type: local
+
+Kvasir_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: Kvasir_i2i
+    dataset_split: test
+    image_root: 2D_Images/kvasir-dataset/datasets/test
+    data_path: 2D_Task/Kvasir/Kvasir_i2i_test.json
+    eval_type: local
+
+PanNuke_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: PanNuke_i2i
+    dataset_split: test
+    image_root: 2D_Images/PanNuke/test_images
+    data_path: 2D_Task/PanNuke/pannuke_i2i_test.json
+    eval_type: local
+
+APTOS_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: APTOS_i2i
+    dataset_split: test
+    image_root: 2D_Images/APTOS/train_images
+    data_path: 2D_Task/APTOS/APTOS_i2i_test.json
+    eval_type: local
+
+ChestMNIST_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: ChestMNIST_i2i
+    dataset_split: test
+    image_root: 2D_Images/ChestMNIST/output_images/test
+    data_path: 2D_Task/ChestMNIST/ChestMNIST_i2i_test.json
+    eval_type: local
+
+# ==============================================================================
+# 2D Text-to-Image Retrieval (T2I)
+# ==============================================================================
+MIMIC-CXR-LT_t2i:
+    dataset_parser: image_t2i
+    dataset_name: MIMIC-CXR-LT_t2i
+    dataset_split: test
+    image_root: 2D_Images/MIMIC_CXR
+    data_path: 2D_Task/MIMIC-CXR-T/mimic-cxr-lt-t2i-test.json
+    eval_type: local
+
+ISIC-2019_t2i:
+    dataset_parser: image_t2i
+    dataset_name: ISIC-2019_t2i
+    dataset_split: test
+    image_root: 2D_Images/ISIC-2019/test/ISIC_2019_Test_Input
+    data_path: 2D_Task/ISIC-2109/ISIC_2019_t2i_test.json
+    eval_type: local
+
+Brain-Tumor-MRI_t2i:
+    dataset_parser: image_t2i
+    dataset_name: Brain-Tumor-MRI_t2i
+    dataset_split: test
+    image_root: 2D_Images/Brain-Tumor-MRI/datasets/Testing
+    data_path: 2D_Task/Brain-Tumor-MRI/Brain_Tumor_MRI_t2i_test.json
+    eval_type: local
+
+BloodMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: BloodMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/BloodMNIST/output_images/test
+    data_path: 2D_Task/BloodMNIST/BloodMNIST_t2i_test.json
+    eval_type: local
+
+DermaMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: DermaMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/DermaMNIST/output_images/test
+    data_path: 2D_Task/DermaMNIST/DermaMNIST_t2i_test.json
+    eval_type: local
+
+OCTMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: OCTMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/OCTMNIST/output_images/test
+    data_path: 2D_Task/OCTMNIST/OCTMNIST_t2i_test.json
+    eval_type: local
+
+OrganAMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: OrganAMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/OrganAMNIST/output_images/test
+    data_path: 2D_Task/OrganAMNIST/OrganAMNIST_t2i_test.json
+    eval_type: local
+
+OrganCMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: OrganCMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/OrganCMNIST/output_images/test
+    data_path: 2D_Task/OrganCMNIST/OrganCMNIST_t2i_test.json
+    eval_type: local
+
+OrganSMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: OrganSMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/OrganSMNIST/output_images/test
+    data_path: 2D_Task/OrganSMNIST/OrganSMNIST_t2i_test.json
+    eval_type: local
+
+PathMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: PathMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/PathMNIST/output_images/test
+    data_path: 2D_Task/PathMNIST/PathMNIST_t2i_test.json
+    eval_type: local
+
+TissueMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: TissueMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/TissueMNIST/output_images/test
+    data_path: 2D_Task/TissueMNIST/TissueMNIST_t2i_test.json
+    eval_type: local
+
+Kvasir_t2i:
+    dataset_parser: image_t2i
+    dataset_name: Kvasir_t2i
+    dataset_split: test
+    image_root: 2D_Images/kvasir-dataset/datasets/test
+    data_path: 2D_Task/Kvasir/Kvasir_t2i_test.json
+    eval_type: local
+
+PanNuke_t2i:
+    dataset_parser: image_t2i
+    dataset_name: PanNuke_t2i
+    dataset_split: test
+    image_root: 2D_Images/PanNuke/test_images
+    data_path: 2D_Task/PanNuke/pannuke_t2i_test.json
+    eval_type: local
+
+APTOS_t2i:
+    dataset_parser: image_t2i
+    dataset_name: APTOS_t2i
+    dataset_split: test
+    image_root: 2D_Images/APTOS/train_images
+    data_path: 2D_Task/APTOS/APTOS_t2i_test.json
+    eval_type: local
+
+ChestMNIST_t2i:
+    dataset_parser: image_t2i
+    dataset_name: ChestMNIST_t2i
+    dataset_split: test
+    image_root: 2D_Images/ChestMNIST/output_images/test
+    data_path: 2D_Task/ChestMNIST/ChestMNIST_t2i_test.json
+    eval_type: local
+
+# ==============================================================================
+# 2D Visual Question Answering (VQA)
+# ==============================================================================
+Path-VQA:
+    dataset_parser: image_qa
+    dataset_name: Path-VQA
+    dataset_split: test
+    image_root: 2D_Images/PathVQA/test_images
+    data_path: 2D_Task/PathVQA/Path-VQA_test.json
+    eval_type: local
+
+PMC-VQA:
+    dataset_parser: image_qa
+    dataset_name: PMC-VQA
+    dataset_split: test
+    image_root: 2D_Images/PMC
+    data_path: 2D_Task/PMC/PMC-VQA_test.json
+    eval_type: local
+
+ROCO-VQA:
+    dataset_parser: image_qa
+    dataset_name: ROCO-VQA
+    dataset_split: test
+    image_root: 2D_Images/ROCO-VQA
+    data_path: 2D_Task/ROCO-VQA/ROCO_test.json
+    eval_type: local
+
+MedPIX:
+    dataset_parser: image_qa
+    dataset_name: MedPIX
+    dataset_split: test
+    image_root: 2D_Images/MedPIX
+    data_path: 2D_Task/MedPIX/MedPix_new.json
+    eval_type: local
+
+RadLmageNet:
+    dataset_parser: image_qa
+    dataset_name: RadLmageNet
+    dataset_split: test
+    image_root: 2D_Images/RadImageNet-VQA/test/images
+    data_path: 2D_Task/RadImageNet-VQA/RadLmageNet_test.json
+    eval_type: local
+
+VQA_RAD:
+    dataset_parser: image_qa
+    dataset_name: VQA_RAD
+    dataset_split: test
+    image_root: 2D_Images/VQA-RAD
+    data_path: 2D_Task/VQA-RAD/VQA_test.json
+    eval_type: local
+
+MIMIC-CXR-VQA:
+    dataset_parser: image_qa
+    dataset_name: MIMIC-CXR-VQA
+    dataset_split: test
+    image_root: 2D_Images/MIMIC_CXR
+    data_path: 2D_Task/MIMIC-CXR-VQA/mimic_test.json
+    eval_type: local
+
+# ==============================================================================
+# 2D Visual Grounding (VG)
+# ==============================================================================
+PanNuke_VG:
+    dataset_parser: image_i2i
+    dataset_name: PanNuke-VG
+    dataset_split: test
+    image_root: 2D_Images/PanNuke_VG
+    data_path: 2D_Task/PanNuke_VG/PanNuke_test.json
+    eval_type: global
+
+UltrasoundNerve:
+    dataset_parser: image_i2i
+    dataset_name: UltrasoundNerve
+    dataset_split: test
+    image_root: 2D_Images/UltrasoundNerve
+    data_path: 2D_Task/UltrasoundNerve/Ultrasound_new.json
+    eval_type: global
+
+ChestImagenome:
+    dataset_parser: image_i2i
+    dataset_name: ChestImagenome
+    dataset_split: test
+    image_root: 2D_Images/ChestImagrome
+    data_path: 2D_Task/ChestImagrome/Chest_imagenome_test.json
+    eval_type: global
+
+Gastrointestinal:
+    dataset_parser: image_i2i
+    dataset_name: Gastrointestinal
+    dataset_split: test
+    image_root: 2D_Images/Gastrointestinal
+    data_path: 2D_Task/Gastrointestinal/gastrointestinal_test.json
+    eval_type: global
+
+SkinLesion:
+    dataset_parser: image_i2i
+    dataset_name: SkinLesion
+    dataset_split: test
+    image_root: 2D_Images/SkinLesion
+    data_path: 2D_Task/SkinLesion/skin_test.json
+    eval_type: global
+
+VindrCXR:
+    dataset_parser: image_i2i
+    dataset_name: VindrCXR
+    dataset_split: test
+    image_root: 2D_Images/VindrCXR
+    data_path: 2D_Task/VindrCXR/VinDr-CXR_test.json
+    eval_type: global
+
+VindrMammo:
+    dataset_parser: image_i2i
+    dataset_name: VindrMammo
+    dataset_split: test
+    image_root: 2D_Images/VindrMammo
+    data_path: 2D_Task/VindrMammo/VindrMammo_test.json
+    eval_type: global
+
+# ==============================================================================
+# 2D Report Generation
+# ==============================================================================
+MIMIC_CXR_report:
+    dataset_parser: image_qa
+    dataset_name: MIMIC-CXR-Report
+    dataset_split: test
+    image_root: 2D_Images/MIMIC_CXR
+    data_path: 2D_Task/MIMIC-CXR-Report/MIMIC-CXR_new.json
+    eval_type: local
+
+USData_report:
+    dataset_parser: image_qa
+    dataset_name: USData-Report
+    dataset_split: test
+    image_root: 2D_Images/USData
+    data_path: 2D_Task/USData/USData_new.json
+    eval_type: local
+

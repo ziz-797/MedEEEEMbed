@@ -1,0 +1,41 @@
+MedMCQA:
+    dataset_parser: text_qa
+    dataset_name: MedMCQA
+    dataset_split: test
+    data_path: Text_Task/MedMCQA/medmcqa_test.json
+    eval_type: local
+
+MIMIC_Findings_Impression:
+    dataset_parser: text_qa
+    dataset_name: MIMIC_Findings_Impression
+    dataset_split: test
+    data_path: Text_Task/MIMIC_f2i/MIMIC_f2i_test.json
+    eval_type: local
+
+PubMedQA:
+    dataset_parser: text_qa
+    dataset_name: PubMedQA
+    dataset_split: test
+    data_path: Text_Task/PubMedQA/PubMedQA_test.json
+    eval_type: local
+
+MedicalQA:
+    dataset_parser: text_qa
+    dataset_name: MedicalQA
+    dataset_split: test
+    data_path: Text_Task/MedicalQARetrieval/MedicalQARetrieval_new.json
+    eval_type: local
+
+PublicHealthQA:
+    dataset_parser: text_qa
+    dataset_name: PublicHealthQA
+    dataset_split: test
+    data_path: Text_Task/PublicHealthQA/PublicHealthQA_test.json
+    eval_type: local
+
+MMDental:
+    dataset_parser: text_qa
+    dataset_name: MMDental
+    dataset_split: test
+    data_path: Text_Task/MMDental/MMDental_t2t_test.json
+    eval_type: local

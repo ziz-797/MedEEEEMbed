@@ -1,0 +1,257 @@
+# ==============================================================================
+# 3D Classification (volume -> text)
+# ==============================================================================
+CT_RATE_cls:
+    dataset_parser: volume_i2t
+    dataset_name: CT_RATE_cls
+    dataset_split: test
+    image_root: 3D_Images/CT_RATE/valid_fixed_sliced
+    data_path: 3D_Task/CT_RATE/CT_RATE_test.json
+    eval_type: local
+
+ChirrMRI600_cls:
+    dataset_parser: volume_i2t
+    dataset_name: ChirrMRI600_cls
+    dataset_split: test
+    image_root: 3D_Images/ChirrMRI600/Cirrhosis_T1_slide
+    data_path: 3D_Task/ChirrMRI600/Chirr_test.json
+    eval_type: local
+
+MRNet_cls:
+    dataset_parser: volume_i2t
+    dataset_name: MRNet_cls
+    dataset_split: test
+    image_root: 3D_Images/MRNet/valid_images
+    data_path: 3D_Task/MRNet/MRNet_test.json
+    eval_type: local
+
+NoduleMNIST_cls:
+    dataset_parser: volume_i2t
+    dataset_name: NoduleMNIST_cls
+    dataset_split: test
+    image_root: 3D_Images/NoduleMNIST/test_slides
+    data_path: 3D_Task/NoduleMNIST/Nodule_test.json
+    eval_type: local
+
+Organ3dMNIST_cls:
+    dataset_parser: volume_i2t
+    dataset_name: Organ3dMNIST_cls
+    dataset_split: test
+    image_root: 3D_Images/Organ3dMNIST/test_slides
+    data_path: 3D_Task/Organ3dMNIST/Organ_test.json
+    eval_type: local
+
+SynapseMNIST_cls:
+    dataset_parser: volume_i2t
+    dataset_name: SynapseMNIST_cls
+    dataset_split: test
+    image_root: 3D_Images/SynapseMNIST/test_slides
+    data_path: 3D_Task/SynapseMNIST/Synapse_test.json
+    eval_type: local
+
+# ==============================================================================
+# 3D VQA (volume -> text)
+# ==============================================================================
+CT_RATE_vqa:
+    dataset_parser: volume_i2t
+    dataset_name: CT_RATE_vqa
+    dataset_split: test
+    image_root: 3D_Images/CT_RATE/valid_fixed_sliced
+    data_path: 3D_Task/CT_RATE/CT_RATE_vqa_test.json
+    eval_type: local
+
+RGCC_vqa:
+    dataset_parser: volume_i2t
+    dataset_name: RGCC_vqa
+    dataset_split: test
+    image_root: 3D_Images/RadGen_CT/valid_preprocessed_sliced
+    data_path: 3D_Task/RadGen_CT/RGCC_test_VQA.json
+    eval_type: local
+
+M3D_3dqa:
+    dataset_parser: volume_i2t
+    dataset_name: M3D_3dqa
+    dataset_split: test
+    image_root: 3D_Images/M3D
+    data_path: 3D_Task/M3D/m3d_3dqa_test.json
+    eval_type: local
+
+# ==============================================================================
+# 3D Image-to-Text (volume -> text)
+# ==============================================================================
+RGCC_i2t:
+    dataset_parser: volume_i2t
+    dataset_name: RGCC_i2t
+    dataset_split: test
+    image_root: 3D_Images/RadGen_CT/valid_preprocessed_sliced
+    data_path: 3D_Task/RadGen_CT/RGCC_i2t_new.json
+    eval_type: local
+
+M3D_i2t:
+    dataset_parser: volume_i2t
+    dataset_name: M3D_i2t
+    dataset_split: test
+    image_root: 3D_Images/M3D
+    data_path: 3D_Task/M3D/m3d_i2t_new.json
+    eval_type: local
+
+MMDental_i2t:
+    dataset_parser: volume_i2t
+    dataset_name: MMDental_i2t
+    dataset_split: test
+    image_root: 3D_Images/MMDental/cbct_png
+    data_path: 3D_Task/MMDental/MMDental_i2t_new.json
+    eval_type: local
+
+# ==============================================================================
+# 3D Text-to-Volume (text -> volume)
+# ==============================================================================
+CT_RATE_t2i:
+    dataset_parser: volume_t2i
+    dataset_name: CT_RATE_t2i
+    dataset_split: test
+    image_root: 3D_Images/CT_RATE/valid_fixed_sliced
+    data_path: 3D_Task/CT_RATE/CT_RATE_t2i_new.json
+    eval_type: global
+
+ChirrMRI600_t2i:
+    dataset_parser: volume_t2i
+    dataset_name: ChirrMRI600_t2i
+    dataset_split: test
+    image_root: 3D_Images/ChirrMRI600/Cirrhosis_T1_slide
+    data_path: 3D_Task/ChirrMRI600/Chirr_t2i_test.json
+    eval_type: local
+
+M3D_t2i:
+    dataset_parser: volume_t2i
+    dataset_name: M3D_t2i
+    dataset_split: test
+    image_root: 3D_Images/M3D
+    data_path: 3D_Task/M3D/m3d_t2i_test.json
+    eval_type: global
+
+MRNet_t2i:
+    dataset_parser: volume_t2i
+    dataset_name: MRNet_t2i
+    dataset_split: test
+    image_root: 3D_Images/MRNet/valid_images
+    data_path: 3D_Task/MRNet/MRNet_t2i_test.json
+    eval_type: local
+
+Organ3dMNIST_t2i:
+    dataset_parser: volume_t2i
+    dataset_name: Organ3dMNIST_t2i
+    dataset_split: test
+    image_root: 3D_Images/Organ3dMNIST/test_slides
+    data_path: 3D_Task/Organ3dMNIST/Organ_t2i_test.json
+    eval_type: local
+
+# ==============================================================================
+# 3D Image/Volume-to-Volume Retrieval (I2I)
+# ==============================================================================
+CT_RATE_i2i:
+    dataset_parser: volume_i2i
+    dataset_name: CT_RATE_i2i
+    dataset_split: test
+    image_root: 3D_Images/CT_RATE
+    data_path: 3D_Task/CT_RATE/CT_RATE_i2i_new.json
+    eval_type: global
+
+ChirrMRI600_i2i:
+    dataset_parser: volume_i2i
+    dataset_name: ChirrMRI600_i2i
+    dataset_split: test
+    image_root: 3D_Images/ChirrMRI600/Cirrhosis_T1_slide
+    data_path: 3D_Task/ChirrMRI600/Chirr_i2i_test.json
+    eval_type: local
+
+MRNet_i2i:
+    dataset_parser: volume_i2i
+    dataset_name: MRNet_i2i
+    dataset_split: test
+    image_root: 3D_Images/MRNet/valid_images
+    data_path: 3D_Task/MRNet/MRNet_i2i_test.json
+    eval_type: local
+
+Organ3dMNIST_i2i:
+    dataset_parser: volume_i2i
+    dataset_name: Organ3dMNIST_i2i
+    dataset_split: test
+    image_root: 3D_Images/Organ3dMNIST/test_slides
+    data_path: 3D_Task/Organ3dMNIST/Organ_i2i_test.json
+    eval_type: local
+
+# ==============================================================================
+# 3D Cross-Modal Retrieval (volume -> volume)
+# ==============================================================================
+BraTS_t1_to_t2:
+    dataset_parser: volume_i2i
+    dataset_name: BraTS_t1_to_t2
+    dataset_split: test
+    image_root: 3D_Images/BraTS2023
+    data_path: 3D_Task/BraTS2023/bratsped_t1_to_t2_test.json
+    eval_type: global
+
+BraTS_t2_to_t1:
+    dataset_parser: volume_i2i
+    dataset_name: BraTS_t2_to_t1
+    dataset_split: test
+    image_root: 3D_Images/BraTS2023
+    data_path: 3D_Task/BraTS2023/bratsped_t2_to_t1_test.json
+    eval_type: global
+
+ChirrMRI600_t1_to_t2:
+    dataset_parser: volume_i2i
+    dataset_name: ChirrMRI600_t1_to_t2
+    dataset_split: test
+    image_root: 3D_Images/CirrMRI600_Cross
+    data_path: 3D_Task/CirrMRI600_Cross/ChirrMRI_test_t1_to_t2.json
+    eval_type: global
+
+ChirrMRI600_t2_to_t1:
+    dataset_parser: volume_i2i
+    dataset_name: ChirrMRI600_t2_to_t1
+    dataset_split: test
+    image_root: 3D_Images/CirrMRI600_Cross
+    data_path: 3D_Task/CirrMRI600_Cross/ChirrMRI_test_t2_to_t1.json
+    eval_type: global
+
+HaNSeg_mri_to_ct:
+    dataset_parser: volume_i2i
+    dataset_name: HaNSeg_mri_to_ct
+    dataset_split: test
+    image_root: 3D_Images/HaN-Seg
+    data_path: 3D_Task/HaN-Seg/hanseg_mri_to_ct_test.json
+    eval_type: global
+
+SynthRAD_brain_ct2mri:
+    dataset_parser: volume_i2i
+    dataset_name: SynthRAD_brain_ct2mri
+    dataset_split: test
+    image_root: 3D_Images/SynthRAD/images
+    data_path: 3D_Task/SynthRAD/brain_ct_to_mri_test.json
+    eval_type: global
+
+SynthRAD_brain_mri2ct:
+    dataset_parser: volume_i2i
+    dataset_name: SynthRAD_brain_mri2ct
+    dataset_split: test
+    image_root: 3D_Images/SynthRAD/images
+    data_path: 3D_Task/SynthRAD/brain_mri_to_ct_test.json
+    eval_type: global
+
+SynthRAD_pelvis_ct2mri:
+    dataset_parser: volume_i2i
+    dataset_name: SynthRAD_pelvis_ct2mri
+    dataset_split: test
+    image_root: 3D_Images/SynthRAD/images
+    data_path: 3D_Task/SynthRAD/pelvis_ct_to_mri_test.json
+    eval_type: global
+
+SynthRAD_pelvis_mri2ct:
+    dataset_parser: volume_i2i
+    dataset_name: SynthRAD_pelvis_mri2ct
+    dataset_split: test
+    image_root: 3D_Images/SynthRAD/images
+    data_path: 3D_Task/SynthRAD/pelvis_mri_to_ct_test.json
+    eval_type: global

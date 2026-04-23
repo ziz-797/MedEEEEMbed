@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Others
+/results/
+/models/
+/data/evaluation/mediem/*
+!/data/evaluation/mediem/download_data.sh
+tmp*
+.ipynb_checkpoints/
+.claude/
+results_old/
+results_old2/
+
+# Local-only eval driver (contains DATA_BASEDIR + chosen MODEL_NAME).
+# Copy scripts/evaluation/mediem/eval_embedding.sh.template to create it.
+scripts/evaluation/mediem/eval_embedding.sh
