@@ -496,3 +496,96 @@ USData_report:
     data_path: 2D_Task/USData/USData_new.json
     eval_type: local
 
+
+# ==============================================================================
+# OOD held-out tasks — ChexpertPlus (not grouped with in-distribution categories)
+# ==============================================================================
+ChexpertPlus_cls:
+    dataset_parser: image_cls
+    dataset_name: ChexpertPlus_cls
+    dataset_split: test
+    image_root: 2D_Images/chexpert_plus/png
+    data_path: 2D_Task/ChexpertPlus/chexpert_plus_cls_new.json
+    eval_type: local
+
+ChexpertPlus_i2t:
+    dataset_parser: image_qa
+    dataset_name: ChexpertPlus_i2t
+    dataset_split: test
+    image_root: 2D_Images/chexpert_plus/png
+    data_path: 2D_Task/ChexpertPlus/chexpert_plus_i2t_new.json
+    eval_type: local
+
+ChexpertPlus_t2i:
+    dataset_parser: image_t2i
+    dataset_name: ChexpertPlus_t2i
+    dataset_split: test
+    image_root: 2D_Images/chexpert_plus/png
+    data_path: 2D_Task/ChexpertPlus/chexpert_plus_t2i_new.json
+    eval_type: local
+
+ChexpertPlus_f2i:
+    dataset_parser: text_qa
+    dataset_name: ChexpertPlus_f2i
+    dataset_split: test
+    data_path: 2D_Task/ChexpertPlus/chexpert_plus_f2i_new.json
+    eval_type: local
+
+# ==============================================================================
+# OOD — Retinal (30-class retinal disease recognition, held-out)
+# ==============================================================================
+
+Retinal_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: Retinal_i2i
+    dataset_split: test
+    image_root: 2D_Images/REtinal/Test_Set/Test
+    data_path: 2D_Task/REtinal/Retinal_i2i_new.json
+    eval_type: local
+
+Retinal_t2i:
+    dataset_parser: image_t2i
+    dataset_name: Retinal_t2i
+    dataset_split: test
+    image_root: 2D_Images/REtinal/Test_Set/Test
+    data_path: 2D_Task/REtinal/Retinal_t2i_new.json
+    eval_type: local
+
+# ==============================================================================
+# OOD — LC25000 (lung + colon histopathology, 5-class, held-out)
+# ==============================================================================
+LC25000_cls:
+    dataset_parser: image_cls
+    dataset_name: LC25000_cls
+    dataset_split: test
+    image_root: 2D_Images/lc25000/lung_colon_image_set/Test_Set
+    data_path: 2D_Task/lc25000/LC25000_cls_new.json
+    eval_type: local
+
+LC25000_i2i:
+    dataset_parser: image_i2i_vg
+    dataset_name: LC25000_i2i
+    dataset_split: test
+    image_root: 2D_Images/lc25000/lung_colon_image_set/Test_Set
+    data_path: 2D_Task/lc25000/LC25000_i2i_new.json
+    eval_type: local
+
+LC25000_t2i:
+    dataset_parser: image_t2i
+    dataset_name: LC25000_t2i
+    dataset_split: test
+    image_root: 2D_Images/lc25000/lung_colon_image_set/Test_Set
+    data_path: 2D_Task/lc25000/LC25000_t2i_new.json
+    eval_type: local
+
+# ==============================================================================
+# OOD — OmniMedVQA_26 (mixed-modality medical VQA, held-out)
+# ==============================================================================
+OmniMedVQA_vqa:
+    dataset_parser: image_qa
+    dataset_name: OmniMedVQA_vqa
+    dataset_split: test
+    image_root: 2D_Images/OmniMedVQA_26/test
+    data_path: 2D_Task/OmniMedVQA_26/OmniMedVQA_vqa_new.json
+    eval_type: local
+

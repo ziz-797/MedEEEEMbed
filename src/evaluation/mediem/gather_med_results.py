@@ -108,6 +108,34 @@ TASK_CATEGORIES = {
         'tasks': ['CT_RATE_t2i', 'ChirrMRI600_t2i', 'M3D_t2i',
                   'MRNet_t2i', 'Organ3dMNIST_t2i']
     },
+    # Held-out / OOD tasks, kept separate from the in-distribution pool.
+    # Split by anatomy: CXR (ChexpertPlus) and Retina (Retinal 30-class).
+    'MED_OOD_CXR': {
+        'metric': 'hit@1',
+        'domain': '2D_Task',
+        'tasks': ['ChexpertPlus_cls', 'ChexpertPlus_i2t',
+                  'ChexpertPlus_t2i', 'ChexpertPlus_f2i']
+    },
+    'MED_OOD_Retinal': {
+        'metric': 'hit@1',
+        'domain': '2D_Task',
+        'tasks': ['Retinal_i2i', 'Retinal_t2i']
+    },
+    'MED_OOD_LC25000': {
+        'metric': 'hit@1',
+        'domain': '2D_Task',
+        'tasks': ['LC25000_cls', 'LC25000_i2i', 'LC25000_t2i']
+    },
+    'MED_OOD_OmniMedVQA': {
+        'metric': 'hit@1',
+        'domain': '2D_Task',
+        'tasks': ['OmniMedVQA_vqa']
+    },
+    'MED_OOD_BraTS_MEN': {
+        'metric': 'hit@1',
+        'domain': '3D_Task',
+        'tasks': ['BraTS_MEN_i2t']
+    },
 }
 
 
@@ -115,6 +143,8 @@ SUMMARY_GROUPS = {
     '2D':  ['MED_2D_CLS', 'MED_2D_I2I', 'MED_2D_T2I', 'MED_2D_I2T', 'MED_2D_VQA', 'MED_2D_VG'],
     'TXT': ['MED_T2T'],
     '3D':  ['MED_3D_CLS', 'MED_3D_VQA', 'MED_3D_I2T', 'MED_3D_T2I', 'MED_3D_I2I'],
+    'OOD': ['MED_OOD_CXR', 'MED_OOD_Retinal', 'MED_OOD_LC25000',
+            'MED_OOD_OmniMedVQA', 'MED_OOD_BraTS_MEN'],
 }
 
 
@@ -176,10 +206,22 @@ def compute_summary(category_results: Dict, task_results: Dict) -> Dict:
         if all_scores:
             summary[group_name] = sum(all_scores) / len(all_scores)
 
-    # ALL
+    # ALL (in-distribution only; OOD is reported separately under 'OOD').
+    in_dist_tasks = {
+        t for g, cats in SUMMARY_GROUPS.items() if g != 'OOD'
+        for c in cats for t in TASK_CATEGORIES[c]['tasks']
+    }
+    in_dist_scores = [
+        v for task, scores in task_results.items() if task in in_dist_tasks
+        for v in scores.values()
+    ]
+    if in_dist_scores:
+        summary['ALL'] = sum(in_dist_scores) / len(in_dist_scores)
+
+    # ALL+OOD: combined across every task (reported alongside, not instead).
     all_scores = [v for scores in task_results.values() for v in scores.values()]
     if all_scores:
-        summary['ALL'] = sum(all_scores) / len(all_scores)
+        summary['ALL+OOD'] = sum(all_scores) / len(all_scores)
 
     return summary
 
@@ -264,6 +306,9 @@ def main():
         'MED_T2T', 'TXT',
         'MED_3D_CLS', 'MED_3D_VQA', 'MED_3D_I2T', 'MED_3D_T2I', 'MED_3D_I2I', '3D',
         'ALL',
+        'MED_OOD_CXR', 'MED_OOD_Retinal', 'MED_OOD_LC25000',
+        'MED_OOD_OmniMedVQA', 'MED_OOD_BraTS_MEN', 'OOD',
+        'ALL+OOD',
     ]
 
     # Count tasks per category
@@ -274,6 +319,13 @@ def main():
         elif cat in SUMMARY_GROUPS:
             cat_counts[cat] = sum(len(TASK_CATEGORIES[c]['tasks']) for c in SUMMARY_GROUPS[cat])
         elif cat == 'ALL':
+            # In-distribution only (OOD kept separate)
+            cat_counts[cat] = sum(
+                len(TASK_CATEGORIES[c]['tasks'])
+                for g, cats in SUMMARY_GROUPS.items() if g != 'OOD'
+                for c in cats
+            )
+        elif cat == 'ALL+OOD':
             cat_counts[cat] = sum(len(c['tasks']) for c in TASK_CATEGORIES.values())
 
     present = [cat for cat in summary_order if cat in summary]

@@ -112,8 +112,6 @@ DATA_BASEDIR/
 │   │   └── Ultrasound_test.json
 │   ├── ChestImagrome/
 │   │   └── Chest_imagenome_test.json
-│   ├── Fundus/
-│   │   └── fundus_test.json
 │   ├── Gastrointestinal/
 │   │   └── gastrointestinal_test.json
 │   ├── SkinLesion/
@@ -158,7 +156,6 @@ DATA_BASEDIR/
 │   ├── DeepLesion/
 │   ├── PanNuke_VG/
 │   ├── UltrasoundNerve/
-│   ├── Fundus/
 │   ├── Gastrointestinal/
 │   ├── SkinLesion/
 │   ├── VindrCXR/

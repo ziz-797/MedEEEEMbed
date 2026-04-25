@@ -31,8 +31,10 @@ CATEGORY_ORDER = [
     'MED_2D_CLS', 'MED_2D_I2I', 'MED_2D_T2I', 'MED_2D_I2T', 'MED_2D_VQA', 'MED_2D_VG',
     'MED_T2T',
     'MED_3D_CLS', 'MED_3D_VQA', 'MED_3D_I2T', 'MED_3D_T2I', 'MED_3D_I2I',
+    'MED_OOD_CXR', 'MED_OOD_Retinal', 'MED_OOD_LC25000',
+    'MED_OOD_OmniMedVQA', 'MED_OOD_BraTS_MEN',
 ]
-SUMMARY_ORDER = ['ALL', '2D', 'TXT', '3D']
+SUMMARY_ORDER = ['ALL', '2D', 'TXT', '3D', 'OOD', 'ALL+OOD']
 
 
 def collect_model(eval_dir: Path, metrics: List[str]) -> Dict[str, Dict[str, float]]:
@@ -62,6 +64,10 @@ def category_score(task_scores: Dict[str, Dict[str, float]], cat: str, metric: s
 
 def super_score(task_scores: Dict[str, Dict[str, float]], group: str, metric: str) -> Optional[float]:
     if group == 'ALL':
+        # In-distribution only (OOD summary group excluded)
+        tasks = [t for g, cats in SUMMARY_GROUPS.items() if g != 'OOD'
+                 for cat in cats for t in TASK_CATEGORIES[cat]['tasks']]
+    elif group == 'ALL+OOD':
         tasks = [t for cfg in TASK_CATEGORIES.values() for t in cfg['tasks']]
     else:
         tasks = [t for cat in SUMMARY_GROUPS[group] for t in TASK_CATEGORIES[cat]['tasks']]
@@ -74,7 +80,13 @@ def task_counts() -> Dict[str, int]:
     counts = {cat: len(cfg['tasks']) for cat, cfg in TASK_CATEGORIES.items()}
     for group, cats in SUMMARY_GROUPS.items():
         counts[group] = sum(counts[c] for c in cats)
-    counts['ALL'] = sum(len(cfg['tasks']) for cfg in TASK_CATEGORIES.values())
+    # ALL is in-distribution only; ALL+OOD is the full 100-task total
+    counts['ALL'] = sum(
+        len(TASK_CATEGORIES[c]['tasks'])
+        for g, cats in SUMMARY_GROUPS.items() if g != 'OOD'
+        for c in cats
+    )
+    counts['ALL+OOD'] = sum(len(cfg['tasks']) for cfg in TASK_CATEGORIES.values())
     return counts
 
 

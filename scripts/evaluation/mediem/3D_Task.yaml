@@ -255,3 +255,15 @@ SynthRAD_pelvis_mri2ct:
     image_root: 3D_Images/SynthRAD/images
     data_path: 3D_Task/SynthRAD/pelvis_mri_to_ct_test.json
     eval_type: global
+
+
+# ==============================================================================
+# OOD — BraTS_MEN (Brain MRI → meningioma report retrieval, held-out)
+# ==============================================================================
+BraTS_MEN_i2t:
+    dataset_parser: volume_i2t
+    dataset_name: BraTS_MEN_i2t
+    dataset_split: test
+    image_root: 3D_Images/BraTS_MEN/BraTS-MEN-Test
+    data_path: 3D_Task/BraTS_MEN/BraTS-MEN-i2t_new.json
+    eval_type: local

@@ -23,3 +23,9 @@ results_old2/
 # Local-only eval driver (contains DATA_BASEDIR + chosen MODEL_NAME).
 # Copy scripts/evaluation/mediem/eval_embedding.sh.template to create it.
 scripts/evaluation/mediem/eval_embedding.sh
+# OOD sweep driver — hard-codes local LoRA ckpt paths.
+scripts/evaluation/mediem/run_ood.sh
+
+# Medical-domain analysis scratchpad (notebooks, plots, metadata annotations).
+# Kept out of git while exploratory; promote specific files once stabilized.
+/analysis/
