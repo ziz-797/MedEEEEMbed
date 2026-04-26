@@ -39,3 +39,14 @@ MMDental:
     dataset_split: test
     data_path: Text_Task/MMDental/MMDental_t2t_test.json
     eval_type: local
+
+# ==============================================================================
+# OOD — ChexpertPlus findings → impression (held-out, text-only)
+# ==============================================================================
+
+ChexpertPlus_f2i:
+    dataset_parser: text_qa
+    dataset_name: ChexpertPlus_f2i
+    dataset_split: test
+    data_path: 2D_Task/ChexpertPlus/chexpert_plus_f2i_new.json
+    eval_type: local

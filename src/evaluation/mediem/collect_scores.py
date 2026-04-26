@@ -32,7 +32,7 @@ CATEGORY_ORDER = [
     'MED_T2T',
     'MED_3D_CLS', 'MED_3D_VQA', 'MED_3D_I2T', 'MED_3D_T2I', 'MED_3D_I2I',
     'MED_OOD_CXR', 'MED_OOD_Retinal', 'MED_OOD_LC25000',
-    'MED_OOD_OmniMedVQA', 'MED_OOD_BraTS_MEN',
+    'MED_OOD_OmniMedVQA', 'MED_OOD_T2T', 'MED_OOD_BraTS_MEN',
 ]
 SUMMARY_ORDER = ['ALL', '2D', 'TXT', '3D', 'OOD', 'ALL+OOD']
 

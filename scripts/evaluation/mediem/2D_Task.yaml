@@ -524,12 +524,7 @@ ChexpertPlus_t2i:
     data_path: 2D_Task/ChexpertPlus/chexpert_plus_t2i_new.json
     eval_type: local
 
-ChexpertPlus_f2i:
-    dataset_parser: text_qa
-    dataset_name: ChexpertPlus_f2i
-    dataset_split: test
-    data_path: 2D_Task/ChexpertPlus/chexpert_plus_f2i_new.json
-    eval_type: local
+# ChexpertPlus_f2i is text-only (findings → impression); see Text_Task.yaml.
 
 # ==============================================================================
 # OOD — Retinal (30-class retinal disease recognition, held-out)

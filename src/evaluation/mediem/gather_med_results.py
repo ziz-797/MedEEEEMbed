@@ -109,12 +109,10 @@ TASK_CATEGORIES = {
                   'MRNet_t2i', 'Organ3dMNIST_t2i']
     },
     # Held-out / OOD tasks, kept separate from the in-distribution pool.
-    # Split by anatomy: CXR (ChexpertPlus) and Retina (Retinal 30-class).
     'MED_OOD_CXR': {
         'metric': 'hit@1',
         'domain': '2D_Task',
-        'tasks': ['ChexpertPlus_cls', 'ChexpertPlus_i2t',
-                  'ChexpertPlus_t2i', 'ChexpertPlus_f2i']
+        'tasks': ['ChexpertPlus_cls', 'ChexpertPlus_i2t', 'ChexpertPlus_t2i']
     },
     'MED_OOD_Retinal': {
         'metric': 'hit@1',
@@ -131,6 +129,11 @@ TASK_CATEGORIES = {
         'domain': '2D_Task',
         'tasks': ['OmniMedVQA_vqa']
     },
+    'MED_OOD_T2T': {
+        'metric': 'hit@1',
+        'domain': 'Text_Task',
+        'tasks': ['ChexpertPlus_f2i']
+    },
     'MED_OOD_BraTS_MEN': {
         'metric': 'hit@1',
         'domain': '3D_Task',
@@ -144,7 +147,7 @@ SUMMARY_GROUPS = {
     'TXT': ['MED_T2T'],
     '3D':  ['MED_3D_CLS', 'MED_3D_VQA', 'MED_3D_I2T', 'MED_3D_T2I', 'MED_3D_I2I'],
     'OOD': ['MED_OOD_CXR', 'MED_OOD_Retinal', 'MED_OOD_LC25000',
-            'MED_OOD_OmniMedVQA', 'MED_OOD_BraTS_MEN'],
+            'MED_OOD_OmniMedVQA', 'MED_OOD_T2T', 'MED_OOD_BraTS_MEN'],
 }
 
 
@@ -307,7 +310,7 @@ def main():
         'MED_3D_CLS', 'MED_3D_VQA', 'MED_3D_I2T', 'MED_3D_T2I', 'MED_3D_I2I', '3D',
         'ALL',
         'MED_OOD_CXR', 'MED_OOD_Retinal', 'MED_OOD_LC25000',
-        'MED_OOD_OmniMedVQA', 'MED_OOD_BraTS_MEN', 'OOD',
+        'MED_OOD_OmniMedVQA', 'MED_OOD_T2T', 'MED_OOD_BraTS_MEN', 'OOD',
         'ALL+OOD',
     ]
 
