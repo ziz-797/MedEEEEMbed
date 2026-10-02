@@ -73,7 +73,6 @@ DATA_BASEDIR/
 │   │   ├── OrganSMNIST_i2i_test.json
 │   │   └── OrganSMNIST_t2i_test.json
 │   ├── PanNuke/
-│   │   ├── pannuke_test.json
 │   │   ├── pannuke_i2i_test.json
 │   │   └── pannuke_t2i_test.json
 │   ├── PathMNIST/
