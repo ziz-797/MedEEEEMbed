@@ -84,7 +84,7 @@ RGCC_i2t:
     dataset_name: RGCC_i2t
     dataset_split: test
     image_root: 3D_Images/RadGen_CT/valid_preprocessed_sliced
-    data_path: 3D_Task/RadGen_CT/RGCC_i2t_new.json
+    data_path: 3D_Task/RadGen_CT/RGCC_i2t_test.json
     eval_type: local
 
 M3D_i2t:
@@ -92,7 +92,7 @@ M3D_i2t:
     dataset_name: M3D_i2t
     dataset_split: test
     image_root: 3D_Images/M3D
-    data_path: 3D_Task/M3D/m3d_i2t_new.json
+    data_path: 3D_Task/M3D/m3d_i2t_test.json
     eval_type: local
 
 MMDental_i2t:
@@ -100,7 +100,7 @@ MMDental_i2t:
     dataset_name: MMDental_i2t
     dataset_split: test
     image_root: 3D_Images/MMDental/cbct_png
-    data_path: 3D_Task/MMDental/MMDental_i2t_new.json
+    data_path: 3D_Task/MMDental/MMDental_i2t_test.json
     eval_type: local
 
 # ==============================================================================
@@ -111,7 +111,7 @@ CT_RATE_t2i:
     dataset_name: CT_RATE_t2i
     dataset_split: test
     image_root: 3D_Images/CT_RATE/valid_fixed_sliced
-    data_path: 3D_Task/CT_RATE/CT_RATE_t2i_new.json
+    data_path: 3D_Task/CT_RATE/CT_RATE_t2i_test.json
     eval_type: global
 
 ChirrMRI600_t2i:
@@ -154,7 +154,7 @@ CT_RATE_i2i:
     dataset_name: CT_RATE_i2i
     dataset_split: test
     image_root: 3D_Images/CT_RATE
-    data_path: 3D_Task/CT_RATE/CT_RATE_i2i_new.json
+    data_path: 3D_Task/CT_RATE/CT_RATE_i2i_test.json
     eval_type: global
 
 ChirrMRI600_i2i:
