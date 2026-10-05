@@ -201,8 +201,8 @@ Organize your data under a single root directory (`DATA_BASEDIR`):
 ```
 DATA_BASEDIR/
 │
-├── 2D_Task/                                    
-│   ├── APTOS/                                  
+├── 2D_Task/
+│   ├── APTOS/
 │   │   ├── APTOS_test.json
 │   │   ├── APTOS_i2i_test.json
 │   │   └── APTOS_t2i_test.json
@@ -214,14 +214,22 @@ DATA_BASEDIR/
 │   │   ├── Brain_Tumor_MRI_test.json
 │   │   ├── Brain_Tumor_MRI_i2i_test.json
 │   │   └── Brain_Tumor_MRI_t2i_test.json
+│   ├── ChestImagrome/
+│   │   └── Chest_imagenome_test.json
 │   ├── ChestMNIST/
 │   │   ├── ChestMNIST_test.json
 │   │   ├── ChestMNIST_i2i_test.json
 │   │   └── ChestMNIST_t2i_test.json
+│   ├── ChexpertPlus/
+│   │   ├── chexpert_plus_cls_new.json
+│   │   ├── chexpert_plus_i2t_new.json
+│   │   └── chexpert_plus_t2i_new.json
 │   ├── DermaMNIST/
 │   │   ├── DermaMNIST_test.json
 │   │   ├── DermaMNIST_i2i_test.json
 │   │   └── DermaMNIST_t2i_test.json
+│   ├── Gastrointestinal/
+│   │   └── gastrointestinal_test.json
 │   ├── ISIC-2109/
 │   │   ├── ISIC_2019_test.json
 │   │   ├── ISIC_2019_i2i_test.json
@@ -230,14 +238,26 @@ DATA_BASEDIR/
 │   │   ├── Kvasir_test.json
 │   │   ├── Kvasir_i2i_test.json
 │   │   └── Kvasir_t2i_test.json
+│   ├── lc25000/
+│   │   ├── LC25000_cls_new.json
+│   │   ├── LC25000_i2i_new.json
+│   │   └── LC25000_t2i_new.json
+│   ├── MedPIX/
+│   │   └── MedPix_test.json
+│   ├── MIMIC-CXR-Report/
+│   │   └── MIMIC-CXR_test.json
 │   ├── MIMIC-CXR-T/
 │   │   ├── mimic-cxr-lt-test.json
 │   │   ├── mimic-cxr-lt-i2i-test.json
 │   │   └── mimic-cxr-lt-t2i-test.json
+│   ├── MIMIC-CXR-VQA/
+│   │   └── mimic_test.json
 │   ├── OCTMNIST/
 │   │   ├── OCTMNIST_test.json
 │   │   ├── OCTMNIST_i2i_test.json
 │   │   └── OCTMNIST_t2i_test.json
+│   ├── OmniMedVQA_vqa/
+│   │   └── OmniMedVQA_vqa_new.json
 │   ├── OrganAMNIST/
 │   │   ├── OrganAMNIST_test.json
 │   │   ├── OrganAMNIST_i2i_test.json
@@ -253,108 +273,101 @@ DATA_BASEDIR/
 │   ├── PanNuke/
 │   │   ├── pannuke_i2i_test.json
 │   │   └── pannuke_t2i_test.json
+│   ├── PanNuke_VG/
+│   │   └── PanNuke_test.json
 │   ├── PathMNIST/
 │   │   ├── PathMNIST_test.json
 │   │   ├── PathMNIST_i2i_test.json
 │   │   └── PathMNIST_t2i_test.json
+│   ├── PathVQA/
+│   │   └── Path-VQA_test.json
+│   ├── PMC/
+│   │   └── PMC-VQA_test.json
+│   ├── RadImageNet-VQA/
+│   │   └── RadLmageNet_test.json
+│   ├── REtinal/
+│   │   ├── Retinal_i2i_new.json
+│   │   └── Retinal_t2i_new.json
+│   ├── ROCO-VQA/
+│   │   └── ROCO_test.json
+│   ├── SkinLesion/
+│   │   └── skin_test.json
 │   ├── TissueMNIST/
 │   │   ├── TissueMNIST_test.json
 │   │   ├── TissueMNIST_i2i_test.json
 │   │   └── TissueMNIST_t2i_test.json
-│   ├── PathVQA/                                
-│   │   └── Path-VQA_test.json
-│   ├── PMC/
-│   │   └── PMC-VQA_test.json
-│   ├── ROCO-VQA/
-│   │   └── ROCO_test.json
-│   ├── MedPIX/
-│   │   └── MedPix_test.json
-│   ├── RadImageNet-VQA/
-│   │   └── RadLmageNet_test.json
-│   ├── VQA-RAD/
-│   │   └── VQA_test.json
-│   ├── MIMIC-CXR-VQA/
-│   │   └── mimic_test.json
-│   ├── PanNuke_VG/
-│   │   └── PanNuke_test.json
 │   ├── UltrasoundNerve/
 │   │   └── Ultrasound_test.json
-│   ├── ChestImagrome/
-│   │   └── Chest_imagenome_test.json
-│   ├── Gastrointestinal/
-│   │   └── gastrointestinal_test.json
-│   ├── SkinLesion/
-│   │   └── skin_test.json
+│   ├── USData/
+│   │   └── USData_test.json
 │   ├── VindrCXR/
 │   │   └── VinDr-CXR_test.json
 │   ├── VindrMammo/
 │   │   └── VindrMammo_test.json
-│   ├── MIMIC-CXR-Report/                      
-│   │   └── MIMIC-CXR_test.json
-│   ├── lc25000/
-│   │   ├── LC25000_cls_new.json
-│   │   ├── LC25000_i2i_new.json
-│   │   └── LC25000_t2i_new.json
-│   ├── OmniMedVQA_vqa/                      
-│   │   └── OmniMedVQA_vqa_new.json
-│   ├── USData/
-│   │   └── USData_test.json
-│   ├── ChexpertPlus/
-│   │   ├── chexpert_plus_cls_new.json
-│   │   ├── chexpert_plus_i2t_new.json
-│   │   └── chexpert_plus_t2i_new.json
-│   ├── REtinal/
-│   │   ├── Retinal_i2i_new.json
-│   │   └── Retinal_t2i_new.json
+│   └── VQA-RAD/
+│       └── VQA_test.json
 │
-│
-├── 2D_Images/                                  
+├── 2D_Images/
 │   ├── APTOS/train_images/
-|   |—— ChestImagrome/gold_crop
 │   ├── BloodMNIST/output_images/test/
 │   ├── Brain-Tumor-MRI/datasets/Testing/
+│   ├── ChestImagrome/gold_crop/                          
 │   ├── ChestMNIST/output_images/test/
+│   ├── chexpert_plus/png/
 │   ├── DermaMNIST/output_images/test/
+│   ├── Gastrointestinal/                      
 │   ├── ISIC-2019/test/ISIC_2019_Test_Input/
 │   ├── kvasir-dataset/datasets/test/
-│   ├── MIMIC_CXR/                              
+│   ├── lc25000/lung_colon_image_set/Test_Set/
+│   ├── MedPIX/                                 
+│   ├── MIMIC_CXR/
 │   ├── OCTMNIST/output_images/test/
+│   ├── OmniMedVQA_26/test/
 │   ├── OrganAMNIST/output_images/test/
 │   ├── OrganCMNIST/output_images/test/
 │   ├── OrganSMNIST/output_images/test/
 │   ├── PanNuke/test_images/
+│   ├── PanNuke_VG/                             
 │   ├── PathMNIST/output_images/test/
-│   ├── TissueMNIST/output_images/test/
 │   ├── PathVQA/test_images/
-│   ├── PMC/
-│   ├── ROCO-VQA/
-│   ├── MedPIX/
+│   ├── PMC/                                    
 │   ├── RadImageNet-VQA/test/images/
-│   ├── VQA-RAD/
-│   ├── PanNuke_VG/
-│   ├── UltrasoundNerve/
-│   ├── Gastrointestinal/
-│   ├── SkinLesion/
-│   ├── VindrCXR/
-│   ├── VindrMammo/
-│   ├── USData/
 │   ├── REtinal/Test_Set/Test/
-│   ├── lc25000/lung_colon_image_set/Test_Set/
-│   ├── OmniMedVQA_26/test/
-│   └── chexpert_plus/png/
+│   ├── ROCO-VQA/                               
+│   ├── SkinLesion/                             
+│   ├── TissueMNIST/output_images/test/
+│   ├── UltrasoundNerve/                        
+│   ├── USData/                                
+│   ├── VindrCXR/                               
+│   ├── VindrMammo/                            
+│   └── VQA-RAD/test/                                
 │
-│
-├── 3D_Task/                                    
-│   ├── CT_RATE/                                
-│   │   ├── CT_RATE_test.json
-│   │   ├── CT_RATE_vqa_test.json
-│   │   ├── CT_RATE_i2t_test.json
-│   │   ├── CT_RATE_t2i_test.json
-│   │   └── CT_RATE_i2i_test.json
+├── 3D_Task/
+│   ├── BraTS2023/
+│   │   ├── bratsped_t1_to_t2_test.json
+│   │   └── bratsped_t2_to_t1_test.json
+│   ├── BraTS_MEN/
+│   │   └── BraTS-MEN-i2t_new.json
 │   ├── ChirrMRI600/
 │   │   ├── Chirr_test.json
 │   │   ├── Chirr_i2i_test.json
 │   │   └── Chirr_t2i_test.json
+│   ├── CirrMRI600_Cross/
+│   │   ├── ChirrMRI_test_t1_to_t2.json
+│   │   └── ChirrMRI_test_t2_to_t1.json
+│   ├── CT_RATE/
+│   │   ├── CT_RATE_test.json
+│   │   ├── CT_RATE_vqa_test.json
+│   │   ├── CT_RATE_t2i_test.json
+│   │   └── CT_RATE_i2i_test.json
+│   ├── HaN-Seg/
+│   │   └── hanseg_mri_to_ct_test.json
+│   ├── M3D/
+│   │   ├── m3d_3dqa_test.json
+│   │   ├── m3d_i2t_test.json
+│   │   └── m3d_t2i_test.json
+│   ├── MMDental/
+│   │   └── MMDental_i2t_test.json
 │   ├── MRNet/
 │   │   ├── MRNet_test.json
 │   │   ├── MRNet_i2i_test.json
@@ -365,63 +378,48 @@ DATA_BASEDIR/
 │   │   ├── Organ_test.json
 │   │   ├── Organ_i2i_test.json
 │   │   └── Organ_t2i_test.json
-│   ├── SynapseMNIST/
-│   │   └── Synapse_test.json
 │   ├── RadGen_CT/
 │   │   ├── RGCC_i2t_test.json
-│   │   ├── RGCC_t2i_test.json
 │   │   └── RGCC_test_VQA.json
-│   ├── M3D/
-│   │   ├── m3d_3dqa_test.json
-│   │   ├── m3d_i2t_test.json
-│   │   └── m3d_t2i_test.json
-│   ├── MMDental/
-│   │   └── MMDental_i2t_test.json
-│   ├── BraTS2023/                              
-│   │   ├── bratsped_t1_to_t2_test.json
-│   │   └── bratsped_t2_to_t1_test.json
-│   ├── CirrMRI600_Cross/
-│   │   ├── ChirrMRI_test_t1_to_t2.json
-│   │   └── ChirrMRI_test_t2_to_t1.json
-│   ├── HaN-Seg/
-│   │   └── hanseg_mri_to_ct_test.json
-│   ├── SynthRAD/
-│   │   ├── brain_ct_to_mri_test.json
-│   │   ├── brain_mri_to_ct_test.json
-│   │   ├── pelvis_ct_to_mri_test.json
-│   │   └── pelvis_mri_to_ct_test.json
-│   └── BraTS_MEN/
-│       └── BraTS-MEN-i2t_new.json
+│   ├── SynapseMNIST/
+│   │   └── Synapse_test.json
+│   └── SynthRAD/
+│       ├── brain_ct_to_mri_test.json
+│       ├── brain_mri_to_ct_test.json
+│       ├── pelvis_ct_to_mri_test.json
+│       └── pelvis_mri_to_ct_test.json
 │
-├── 3D_Images/                                  
+├── 3D_Images/
+│   ├── BraTS2023/                              
+│   ├── BraTS_MEN/BraTS-MEN-Test/
+│   ├── ChirrMRI600/Cirrhosis_T1_slide/
+│   ├── CirrMRI600_Cross/                       
 │   ├── CT_RATE/
 │   │   ├── valid_fixed_sliced/
 │   │   └── valid_fixed_drr/
-│   ├── ChirrMRI600/Cirrhosis_T1_slide/
+│   ├── HaN-Seg/                                
+│   ├── M3D/ct_quizze/
+│   ├── MMDental/cbct_png/
 │   ├── MRNet/valid_images/
 │   ├── NoduleMNIST/test_slides/
 │   ├── Organ3dMNIST/test_slides/
-│   ├── SynapseMNIST/test_slides/
 │   ├── RadGen_CT/valid_preprocessed_sliced/
-│   ├── M3D/
-│   ├── MMDental/cbct_png/
-│   ├── BraTS2023/
-│   ├── CirrMRI600_Cross/
-│   ├── HaN-Seg/
-│   ├── SynthRAD/images/
-│   └── BraTS_MEN/BraTS-MEN-Test/
+│   ├── SynapseMNIST/test_slides/
+│   └── SynthRAD/images/                        
 │
-└── Text_Task/                                 
+└── Text_Task/
+    ├── ChexpertPlus/
+    │   └── chexpert_plus_f2i_new.json
+    ├── MedicalQARetrieval/
+    │   └── MedicalQARetrieval_test.json
     ├── MedMCQA/
     │   └── medmcqa_test.json
     ├── MIMIC_f2i/
     │   └── MIMIC_f2i_test.json
-    ├── PubMedQA/
-    │   └── PubMedQA_test.json
-    ├── MedicalQARetrieval/
-    │   └── MedicalQARetrieval_test.json
+    ├── MMDental/
+    │   └── MMDental_t2t_test.json
     ├── PublicHealthQA/
     │   └── PublicHealthQA_test.json
-    └── MMDental/
-        └── MMDental_t2t_test.json
+    └── PubMedQA/
+        └── PubMedQA_test.json
 ```
