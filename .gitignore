@@ -1,31 +1,47 @@
-# Python-generated files
+# Python bytecode
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
 build/
 dist/
-wheels/
-*.egg-info
+*.egg-info/
+*.egg
 
 # Virtual environments
-.venv
+.venv/
+venv/
+env/
 
-# Others
-/results/
-/models/
-/data/evaluation/mediem/*
-!/data/evaluation/mediem/download_data.sh
-tmp*
+# Environment files
+.env
+.env.local
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Notebooks
 .ipynb_checkpoints/
-.claude/
-results_old/
-results_old2/
 
-# Local-only eval driver (contains DATA_BASEDIR + chosen MODEL_NAME).
-# Copy scripts/evaluation/mediem/eval_embedding.sh.template to create it.
-scripts/evaluation/mediem/eval_embedding.sh
-# OOD sweep driver — hard-codes local LoRA ckpt paths.
-scripts/evaluation/mediem/run_ood.sh
+# HuggingFace / Torch cache
+.cache/
+*.bin
+*.safetensors
 
-# Medical-domain analysis scratchpad (notebooks, plots, metadata annotations).
-# Kept out of git while exploratory; promote specific files once stabilized.
-/analysis/
+# ML run artifacts
+wandb/
+runs/
+logs/
+*.log
+checkpoints/
+outputs/
+embeddings/
+results/
