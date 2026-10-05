@@ -4,29 +4,11 @@ import torch.distributed as dist
 from torch import nn, Tensor
 from transformers import AutoConfig
 
-from ...models.blip2_embedding import Blip2Embedder
 from ...models.qwen3_vl_embedding import Qwen3VLEmbedder
-from ...models.rzen_embed_embedding import RzenEmbedEmbedder
-from ...models.siglip_embedding import SigLipEmbedder
-from ...models.vlm2vec_v2_embedding import Vlm2VecV2Embedder
-
-
-def _select_embedder_cls(model_name_or_path: str):
-    """Pick the backbone adapter from the model path / HF repo id."""
-    p = (model_name_or_path or "").lower()
-    if "blip2" in p or "blip-2" in p:
-        return Blip2Embedder
-    if "siglip" in p:
-        return SigLipEmbedder
-    if "vlm2vec" in p:
-        return Vlm2VecV2Embedder
-    if "rzenembed" in p or p.startswith("qihoo360/") or "/qihoo360/" in p:
-        return RzenEmbedEmbedder
-    return Qwen3VLEmbedder
 
 
 class MediEBEmbeddingModel(nn.Module):
-    """MediEB embedding wrapper; supports Qwen3-VL or RzenEmbed backbones."""
+    """MediEB embedding wrapper; Qwen3-VL backbone."""
 
     def __init__(self,
                  encoder,
@@ -61,8 +43,7 @@ class MediEBEmbeddingModel(nn.Module):
              **kwargs) -> "MediEBEmbeddingModel":
         """Load model from pretrained checkpoint."""
         default_instruction = kwargs.pop('default_instruction', instruction)
-        EmbedderCls = _select_embedder_cls(model_name_or_path)
-        encoder = EmbedderCls(
+        encoder = Qwen3VLEmbedder(
             model_name_or_path=model_name_or_path,
             default_instruction=default_instruction or "Represent the user's input.",
             **kwargs
