@@ -151,6 +151,144 @@ SUMMARY_GROUPS = {
 }
 
 
+RETRIEVAL_FAMILIES = {
+    'FAM_I2I': {
+        'metric': 'hit@1',
+        'label': 'Image-image retrieval',
+        'tasks': [
+            # 2D pure i2i (15 in-dist + 2 OOD)
+            'APTOS_i2i', 'BloodMNIST_i2i', 'Brain-Tumor-MRI_i2i', 'ChestMNIST_i2i',
+            'DermaMNIST_i2i', 'ISIC-2019_i2i', 'Kvasir_i2i', 'MIMIC-CXR-LT_i2i',
+            'OCTMNIST_i2i', 'OrganAMNIST_i2i', 'OrganCMNIST_i2i', 'OrganSMNIST_i2i',
+            'PanNuke_i2i', 'PathMNIST_i2i', 'TissueMNIST_i2i',
+            'LC25000_i2i', 'Retinal_i2i',
+            # 3D pure i2i (3) — CT_RATE_i2i is cross-modal, lives in FAM_CrossMod
+            'ChirrMRI600_i2i', 'MRNet_i2i', 'Organ3dMNIST_i2i',
+        ],
+    },
+    'FAM_CrossMod': {
+        'metric': 'hit@1',
+        'label': 'Same-patient cross-modality',
+        'tasks': [
+            'CT_RATE_i2i',
+            'BraTS_t1_to_t2', 'BraTS_t2_to_t1',
+            'ChirrMRI600_t1_to_t2', 'ChirrMRI600_t2_to_t1',
+            'HaNSeg_mri_to_ct',
+            'SynthRAD_brain_ct2mri', 'SynthRAD_brain_mri2ct',
+            'SynthRAD_pelvis_ct2mri', 'SynthRAD_pelvis_mri2ct',
+        ],
+    },
+    'FAM_CLS': {
+        'metric': 'hit@1',
+        'label': 'Image-to-label retrieval',
+        'tasks': [
+            # 2D cls (14 in-dist + 2 OOD)
+            'APTOS_cls', 'BloodMNIST_cls', 'Brain-Tumor-MRI_cls', 'ChestMNIST_cls',
+            'DermaMNIST_cls', 'ISIC-2019_cls', 'Kvasir_cls', 'MIMIC-CXR-LT_cls',
+            'OCTMNIST_cls', 'OrganAMNIST_cls', 'OrganCMNIST_cls', 'OrganSMNIST_cls',
+            'PathMNIST_cls', 'TissueMNIST_cls',
+            'ChexpertPlus_cls', 'LC25000_cls',
+            # 3D cls (6)
+            'CT_RATE_cls', 'ChirrMRI600_cls', 'MRNet_cls',
+            'NoduleMNIST_cls', 'Organ3dMNIST_cls', 'SynapseMNIST_cls',
+        ],
+    },
+    'FAM_I2T': {
+        'metric': 'hit@1',
+        'label': 'Image-to-report retrieval',
+        'tasks': [
+            # 2D (2 in-dist + 1 OOD)
+            'MIMIC_CXR_report', 'USData_report', 'ChexpertPlus_i2t',
+            # 3D (3 in-dist + 1 OOD)
+            'RGCC_i2t', 'M3D_i2t', 'MMDental_i2t', 'BraTS_MEN_i2t',
+        ],
+    },
+    'FAM_T2I': {
+        'metric': 'hit@1',
+        'label': 'Text-to-image retrieval',
+        'tasks': [
+            # 2D (15 in-dist + 3 OOD)
+            'APTOS_t2i', 'BloodMNIST_t2i', 'Brain-Tumor-MRI_t2i', 'ChestMNIST_t2i',
+            'DermaMNIST_t2i', 'ISIC-2019_t2i', 'Kvasir_t2i', 'MIMIC-CXR-LT_t2i',
+            'OCTMNIST_t2i', 'OrganAMNIST_t2i', 'OrganCMNIST_t2i', 'OrganSMNIST_t2i',
+            'PanNuke_t2i', 'PathMNIST_t2i', 'TissueMNIST_t2i',
+            'ChexpertPlus_t2i', 'LC25000_t2i', 'Retinal_t2i',
+            # 3D (5)
+            'CT_RATE_t2i', 'ChirrMRI600_t2i', 'M3D_t2i', 'MRNet_t2i', 'Organ3dMNIST_t2i',
+        ],
+    },
+    'FAM_VQA': {
+        'metric': 'hit@1',
+        'label': 'Question-conditioned retrieval',
+        'tasks': [
+            # 2D (7 in-dist + 1 OOD)
+            'Path-VQA', 'PMC-VQA', 'ROCO-VQA',
+            'MedPIX', 'RadLmageNet', 'VQA_RAD', 'MIMIC-CXR-VQA',
+            'OmniMedVQA_vqa',
+            # 3D (3)
+            'CT_RATE_vqa', 'RGCC_vqa', 'M3D_3dqa',
+        ],
+    },
+    'FAM_VG': {
+        'metric': 'hit@1',
+        'label': 'Region-level text-to-region',
+        'tasks': [
+            'PanNuke_VG', 'UltrasoundNerve', 'ChestImagenome',
+            'Gastrointestinal', 'SkinLesion', 'VindrCXR', 'VindrMammo',
+        ],
+    },
+    'FAM_T2T': {
+        'metric': 'hit@1',
+        'label': 'Biomedical text-text retrieval',
+        'tasks': [
+            'MedMCQA', 'MIMIC_Findings_Impression', 'PubMedQA',
+            'MedicalQA', 'PublicHealthQA', 'MMDental',
+            'ChexpertPlus_f2i',
+        ],
+    },
+}
+
+
+def _validate_retrieval_families() -> None:
+    """Fail loudly at import time if FAM_* and MED_* go out of sync.
+
+    Catches three classes of bug:
+      1. a task name typo in either dict,
+      2. a task added to MED_* but forgotten in FAM_* (or vice versa),
+      3. a task accidentally placed in two families.
+    """
+    expected_counts = {
+        'FAM_I2I': 20, 'FAM_CrossMod': 10, 'FAM_CLS': 22, 'FAM_I2T': 7,
+        'FAM_T2I': 23, 'FAM_VQA': 11, 'FAM_VG': 7, 'FAM_T2T': 7,
+    }
+    cat_tasks = {t for c in TASK_CATEGORIES.values() for t in c['tasks']}
+    fam_tasks: list[str] = []
+    for fam, cfg in RETRIEVAL_FAMILIES.items():
+        if len(cfg['tasks']) != expected_counts[fam]:
+            raise RuntimeError(
+                f"{fam} expected {expected_counts[fam]} tasks, got {len(cfg['tasks'])}"
+            )
+        fam_tasks.extend(cfg['tasks'])
+
+    # Strict partition: every task appears exactly once across the 8 families,
+    # and the union equals the MED_* universe.
+    dupes = [t for t in fam_tasks if fam_tasks.count(t) > 1]
+    if dupes:
+        raise RuntimeError(f"Duplicate tasks across retrieval families: {sorted(set(dupes))}")
+    fam_set = set(fam_tasks)
+    missing_in_fam = cat_tasks - fam_set
+    extra_in_fam = fam_set - cat_tasks
+    if missing_in_fam or extra_in_fam:
+        raise RuntimeError(
+            f"FAM_* and MED_* are out of sync.\n"
+            f"  in MED_* but not FAM_*: {sorted(missing_in_fam)}\n"
+            f"  in FAM_* but not MED_*: {sorted(extra_in_fam)}"
+        )
+
+
+_validate_retrieval_families()
+
+
 def load_score(eval_dir: Path, domain: str, task: str) -> Optional[Dict]:
     """Load score results for a single task"""
     score_file = eval_dir / domain / f"{task}_score.json"
@@ -198,6 +336,17 @@ def compute_summary(category_results: Dict, task_results: Dict) -> Dict:
     for cat, val in category_results.items():
         if val is not None:
             summary[cat] = val
+
+    # Retrieval-family means (orthogonal view; same task pool, regrouped).
+    for fam, cfg in RETRIEVAL_FAMILIES.items():
+        metric = cfg['metric']
+        scores = [
+            task_results[t][metric]
+            for t in cfg['tasks']
+            if t in task_results and metric in task_results[t]
+        ]
+        if scores:
+            summary[fam] = sum(scores) / len(scores)
 
     for group_name, cats in SUMMARY_GROUPS.items():
         all_scores = []
@@ -303,7 +452,10 @@ def main():
     category_results, task_results = collect_results(eval_dir)
     summary = compute_summary(category_results, task_results)
 
-    # Summary table
+    # Summary table — three views, separated visually:
+    #   1. existing MED_* category buckets + 2D/TXT/3D/OOD super-groups
+    #   2. ALL / ALL+OOD totals
+    #   3. NEW: 8 retrieval families (orthogonal partition of all 107 tasks)
     summary_order = [
         'MED_2D_CLS', 'MED_2D_I2I', 'MED_2D_T2I', 'MED_2D_I2T', 'MED_2D_VQA', 'MED_2D_VG', '2D',
         'MED_T2T', 'TXT',
@@ -312,6 +464,8 @@ def main():
         'MED_OOD_CXR', 'MED_OOD_Retinal', 'MED_OOD_LC25000',
         'MED_OOD_OmniMedVQA', 'MED_OOD_T2T', 'MED_OOD_BraTS_MEN', 'OOD',
         'ALL+OOD',
+        'FAM_I2I', 'FAM_CrossMod', 'FAM_CLS', 'FAM_I2T',
+        'FAM_T2I', 'FAM_VQA', 'FAM_VG', 'FAM_T2T',
     ]
 
     # Count tasks per category
@@ -319,6 +473,8 @@ def main():
     for cat in summary_order:
         if cat in TASK_CATEGORIES:
             cat_counts[cat] = len(TASK_CATEGORIES[cat]['tasks'])
+        elif cat in RETRIEVAL_FAMILIES:
+            cat_counts[cat] = len(RETRIEVAL_FAMILIES[cat]['tasks'])
         elif cat in SUMMARY_GROUPS:
             cat_counts[cat] = sum(len(TASK_CATEGORIES[c]['tasks']) for c in SUMMARY_GROUPS[cat])
         elif cat == 'ALL':
