@@ -23,7 +23,7 @@ MedicalQA:
     dataset_parser: text_qa
     dataset_name: MedicalQA
     dataset_split: test
-    data_path: Text_Task/MedicalQARetrieval/MedicalQARetrieval_new.json
+    data_path: Text_Task/MedicalQARetrieval/MedicalQARetrieval_test.json
     eval_type: local
 
 PublicHealthQA:
@@ -48,5 +48,5 @@ ChexpertPlus_f2i:
     dataset_parser: text_qa
     dataset_name: ChexpertPlus_f2i
     dataset_split: test
-    data_path: 2D_Task/ChexpertPlus/chexpert_plus_f2i_new.json
+    data_path: Text_Task/ChexpertPlus/chexpert_plus_f2i_new.json
     eval_type: local
