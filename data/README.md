@@ -324,7 +324,7 @@ DATA_BASEDIR/
 │   ├── MIMIC-CXR-Report/files/
 │   ├── MIMIC-CXR-VQA/files/
 │   ├── OCTMNIST/output_images/test/
-│   ├── OmniMedVQA_26/test/
+│   ├── OmniMedVQA_vqa/test/
 │   ├── OrganAMNIST/output_images/test/
 │   ├── OrganCMNIST/output_images/test/
 │   ├── OrganSMNIST/output_images/test/
