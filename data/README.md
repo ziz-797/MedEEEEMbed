@@ -121,7 +121,7 @@ The following datasets are supported and should be processed using the provided 
 **Description**: `cut_slides.py` — This script converts each 3D knee MRI volume into 2D slices from the `axial`, `coronal`, and `sagittal` views, with 10 slices extracted for each view. We map MRNet labels as follows: `abnormal = 0` is labeled as `healthy`, while cases with `abnormal = 1`, `acl = 0`, and `meniscus = 0` are labeled as `other diseases`.
 
 **8. MMDental**
-   - a. [3D_Task/MMDental/cut_slides.py](https://github.com/ziz-797/Processing_Code/blob/main/3D_Task/MMDental/cut_slides.py)
+   - a. [3D_Task/MMDental/cut_slides.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/3D_Task/MMDental/cut_slides.py)
 
 **Description**: `cut_slides.py` — This script converts the original 3D CBCT volumes from each case into 2D slices from the `axial`, `coronal`, and `sagittal` views, with 20 slices extracted for each view. The input root should be set to `./MMDental`.
 
