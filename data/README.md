@@ -85,7 +85,7 @@ The following datasets are supported and should be processed using the provided 
 ## 3D_Task
 
 **1. BraTS-MEN**
-   - a. [3D_Task/BraTS-MEN/cut_slides.py](https://github.com/ziz-797/Processing_Code/blob/main/3D_Task/BraTS-MEN/cut_slides.py)
+   - a. [3D_Task/BraTS-MEN/cut_slides.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/3D_Task/BraTS-MEN/cut_slides.py)
    
 **Description**: `cut_slides.py` — This script converts the original `t1n.nii.gz` files from each BraTS-MEN case into 2D T1-weighted MRI slices. We follow the test split defined by the impression-text annotations in [RadGenome-Brain_MRI](https://huggingface.co/datasets/JiayuLei/RadGenome-Brain_MRI). `INPUT_ROOT` should be set to `./BraTS-MEN-Train`.
    
