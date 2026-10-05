@@ -5,7 +5,7 @@ MIMIC-CXR-LT_cls:
     dataset_parser: image_cls
     dataset_name: MIMIC-CXR-LT_cls
     dataset_split: test
-    image_root: 2D_Images/MIMIC_CXR
+    image_root: 2D_Images/MIMIC-CXR-T
     data_path: 2D_Task/MIMIC-CXR-T/mimic-cxr-lt-test.json
     eval_type: local
 
@@ -14,7 +14,7 @@ ISIC-2019_cls:
     dataset_name: ISIC-2019_cls
     dataset_split: test
     image_root: 2D_Images/ISIC-2019/test/ISIC_2019_Test_Input
-    data_path: 2D_Task/ISIC-2109/ISIC_2019_test.json
+    data_path: 2D_Task/ISIC-2019/ISIC_2019_test.json
     eval_type: local
 
 Brain-Tumor-MRI_cls:
@@ -120,7 +120,7 @@ MIMIC-CXR-LT_i2i:
     dataset_parser: image_i2i_vg
     dataset_name: MIMIC-CXR-LT_i2i
     dataset_split: test
-    image_root: 2D_Images/MIMIC_CXR
+    image_root: 2D_Images/MIMIC-CXR-T
     data_path: 2D_Task/MIMIC-CXR-T/mimic-cxr-lt-i2i-test.json
     eval_type: local
 
@@ -129,7 +129,7 @@ ISIC-2019_i2i:
     dataset_name: ISIC-2019_i2i
     dataset_split: test
     image_root: 2D_Images/ISIC-2019/test/ISIC_2019_Test_Input
-    data_path: 2D_Task/ISIC-2109/ISIC_2019_i2i_test.json
+    data_path: 2D_Task/ISIC-2019/ISIC_2019_i2i_test.json
     eval_type: local
 
 Brain-Tumor-MRI_i2i:
@@ -243,7 +243,7 @@ MIMIC-CXR-LT_t2i:
     dataset_parser: image_t2i
     dataset_name: MIMIC-CXR-LT_t2i
     dataset_split: test
-    image_root: 2D_Images/MIMIC_CXR
+    image_root: 2D_Images/MIMIC-CXR-T
     data_path: 2D_Task/MIMIC-CXR-T/mimic-cxr-lt-t2i-test.json
     eval_type: local
 
@@ -252,7 +252,7 @@ ISIC-2019_t2i:
     dataset_name: ISIC-2019_t2i
     dataset_split: test
     image_root: 2D_Images/ISIC-2019/test/ISIC_2019_Test_Input
-    data_path: 2D_Task/ISIC-2109/ISIC_2019_t2i_test.json
+    data_path: 2D_Task/ISIC-2019/ISIC_2019_t2i_test.json
     eval_type: local
 
 Brain-Tumor-MRI_t2i:
@@ -391,7 +391,7 @@ MedPIX:
     dataset_name: MedPIX
     dataset_split: test
     image_root: 2D_Images/MedPIX
-    data_path: 2D_Task/MedPIX/MedPix_new.json
+    data_path: 2D_Task/MedPIX/MedPix_test.json
     eval_type: local
 
 RadLmageNet:
@@ -402,22 +402,21 @@ RadLmageNet:
     data_path: 2D_Task/RadImageNet-VQA/RadLmageNet_test.json
     eval_type: local
 
-VQA_RAD:
-    dataset_parser: image_qa
-    dataset_name: VQA_RAD
-    dataset_split: test
-    image_root: 2D_Images/VQA-RAD
-    data_path: 2D_Task/VQA-RAD/VQA_test.json
-    eval_type: local
-
 MIMIC-CXR-VQA:
     dataset_parser: image_qa
     dataset_name: MIMIC-CXR-VQA
     dataset_split: test
-    image_root: 2D_Images/MIMIC_CXR
+    image_root: 2D_Images/MIMIC-CXR-VQA/files
     data_path: 2D_Task/MIMIC-CXR-VQA/mimic_test.json
     eval_type: local
 
+VQA_RAD:
+    dataset_parser: image_qa
+    dataset_name: VQA_RAD
+    dataset_split: test
+    image_root: 2D_Images/VQA-RAD/test
+    data_path: 2D_Task/VQA-RAD/VQA_test.json
+    eval_type: local
 # ==============================================================================
 # 2D Visual Grounding (VG)
 # ==============================================================================
@@ -434,7 +433,7 @@ UltrasoundNerve:
     dataset_name: UltrasoundNerve
     dataset_split: test
     image_root: 2D_Images/UltrasoundNerve
-    data_path: 2D_Task/UltrasoundNerve/Ultrasound_new.json
+    data_path: 2D_Task/UltrasoundNerve/Ultrasound_test.json
     eval_type: global
 
 ChestImagenome:
@@ -484,8 +483,8 @@ MIMIC_CXR_report:
     dataset_parser: image_qa
     dataset_name: MIMIC-CXR-Report
     dataset_split: test
-    image_root: 2D_Images/MIMIC_CXR
-    data_path: 2D_Task/MIMIC-CXR-Report/MIMIC-CXR_new.json
+    image_root: 2D_Images/MIMIC-CXR-Report/files
+    data_path: 2D_Task/MIMIC-CXR-Report/MIMIC-CXR_test.json
     eval_type: local
 
 USData_report:
@@ -493,7 +492,7 @@ USData_report:
     dataset_name: USData-Report
     dataset_split: test
     image_root: 2D_Images/USData
-    data_path: 2D_Task/USData/USData_new.json
+    data_path: 2D_Task/USData/USData_test.json
     eval_type: local
 
 
@@ -580,7 +579,6 @@ OmniMedVQA_vqa:
     dataset_parser: image_qa
     dataset_name: OmniMedVQA_vqa
     dataset_split: test
-    image_root: 2D_Images/OmniMedVQA_26/test
-    data_path: 2D_Task/OmniMedVQA_26/OmniMedVQA_vqa_new.json
+    image_root: 2D_Images/OmniMedVQA_vqa/test
+    data_path: 2D_Task/OmniMedVQA_vqa/OmniMedVQA_vqa_new.json
     eval_type: local
-
