@@ -1,21 +1,6 @@
 #!/usr/bin/env python3
-"""Collect medical evaluation scores across multiple models into a CSV.
-
-Output rows are grouped by `level`:
-  - summary:  ALL / 2D / TXT / 3D (super-groups averaged over all their tasks)
-  - category: MED_2D_CLS / MED_2D_I2I / ... (sub-task buckets, 子任务)
-  - task:     individual datasets like VindrMammo, PathMNIST_cls (子数据)
-
-Each model contributes one column per requested metric.
-
-Usage:
-  python -m src.evaluation.mediem.collect_scores <RESULTS_ROOT> -o report.csv
-  python -m src.evaluation.mediem.collect_scores <RESULTS_ROOT> \
-      --models <MODEL_NAME_A>,<MODEL_NAME_B>,<MODEL_NAME_C> \
-      --metrics hit@1,hit@5,hit@10 -o report.csv
-
-<RESULTS_ROOT> should contain one sub-directory per model (auto-discovered
-unless --models is passed).
+"""
+Collect medical evaluation scores across multiple models into a CSV.
 """
 
 from __future__ import annotations
@@ -24,7 +9,12 @@ import csv
 from pathlib import Path
 from typing import Dict, List
 
-from .gather_med_results import TASK_CATEGORIES, SUMMARY_GROUPS, load_score
+from .gather_med_results import (
+    RETRIEVAL_FAMILIES,
+    SUMMARY_GROUPS,
+    TASK_CATEGORIES,
+    load_score,
+)
 
 
 CATEGORY_ORDER = [
@@ -35,6 +25,10 @@ CATEGORY_ORDER = [
     'MED_OOD_OmniMedVQA', 'MED_OOD_T2T', 'MED_OOD_BraTS_MEN',
 ]
 SUMMARY_ORDER = ['ALL', '2D', 'TXT', '3D', 'OOD', 'ALL+OOD']
+FAMILY_ORDER = [
+    'FAM_I2I', 'FAM_CrossMod', 'FAM_CLS', 'FAM_I2T',
+    'FAM_T2I', 'FAM_VQA', 'FAM_VG', 'FAM_T2T',
+]
 
 
 def collect_model(eval_dir: Path, metrics: List[str]) -> Dict[str, Dict[str, float]]:
@@ -59,6 +53,11 @@ def category_score(scores: Dict[str, Dict[str, float]], cat: str, metric: str) -
                 if t in scores and metric in scores[t]])
 
 
+def family_score(scores: Dict[str, Dict[str, float]], fam: str, metric: str) -> float | None:
+    return avg([scores[t][metric] for t in RETRIEVAL_FAMILIES[fam]['tasks']
+                if t in scores and metric in scores[t]])
+
+
 def super_score(scores: Dict[str, Dict[str, float]], group: str, metric: str) -> float | None:
     if group == 'ALL':
         # In-distribution only: OOD reported separately
@@ -74,6 +73,8 @@ def super_score(scores: Dict[str, Dict[str, float]], group: str, metric: str) ->
 def n_tasks(name: str) -> int:
     if name in TASK_CATEGORIES:
         return len(TASK_CATEGORIES[name]['tasks'])
+    if name in RETRIEVAL_FAMILIES:
+        return len(RETRIEVAL_FAMILIES[name]['tasks'])
     if name in SUMMARY_GROUPS:
         return sum(len(TASK_CATEGORIES[c]['tasks']) for c in SUMMARY_GROUPS[name])
     if name == 'ALL':
@@ -112,6 +113,14 @@ def build_rows(
         for m in models:
             for metric in metrics:
                 row.append(fmt(super_score(all_scores.get(m, {}), g, metric)))
+        rows.append(row)
+
+    # family rows (orthogonal partition by retrieval direction)
+    for fam in FAMILY_ORDER:
+        row = ['family', fam, '', str(n_tasks(fam))]
+        for m in models:
+            for metric in metrics:
+                row.append(fmt(family_score(all_scores.get(m, {}), fam, metric)))
         rows.append(row)
 
     # category rows
