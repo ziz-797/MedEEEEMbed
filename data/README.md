@@ -230,7 +230,7 @@ DATA_BASEDIR/
 │   │   └── DermaMNIST_t2i_test.json
 │   ├── Gastrointestinal/
 │   │   └── gastrointestinal_test.json
-│   ├── ISIC-2109/
+│   ├── ISIC-2019/
 │   │   ├── ISIC_2019_test.json
 │   │   ├── ISIC_2019_i2i_test.json
 │   │   └── ISIC_2019_t2i_test.json
