@@ -1,26 +1,13 @@
 #!/usr/bin/env bash
 # Adapted from https://github.com/TIGER-AI-Lab/VLM2Vec/blob/main/experiments/public/eval/eval_8gpu.sh
-#
-# Usage:
-#   1. Copy this file to `eval_embedding.sh` (which is gitignored).
-#   2. Set DATA_BASEDIR and MODEL_NAME below, or export them in your shell.
-#   3. Run: bash scripts/evaluation/mediem/eval_embedding.sh
-#
-# Environment variables honoured:
-#   DATA_BASEDIR   Root dir containing 2D_Task/, 3D_Task/, Text_Task/, 2D_Images/, 3D_Images/
-#   MODEL_NAME     HF repo id or local path; the backbone adapter is auto-selected from it
-#                  (see src/evaluation/mediem/models.py:_select_embedder_cls)
-#   BATCH_SIZE     per-device eval batch size (default 8)
-#   MASTER_ADDR    multi-node master addr (default localhost)
-#   MASTER_PORT    multi-node master port (default 2277)
-#   WORLD_SIZE     number of nodes (default 1)
-export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0,1,2,3}"
+# sudo pip install -e .
+# pip install transformers==4.57.1
+# pip install qwen-vl-utils==0.0.14
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 echo "==> Environment"
 echo "Python location: $(which python)"
 echo "Python version: $(python --version)"
 echo ""
-
-cd "$(dirname "${BASH_SOURCE[0]}")/../../.."
 
 # ==============================================================================
 # Multi-node Configuration
@@ -54,29 +41,17 @@ echo ""
 # ==============================================================================
 # Model Configuration
 # ==============================================================================
-# Pick one; the backbone adapter is auto-routed by path/name:
-#   Qwen/Qwen3-VL-Embedding-{2B,8B}     -> Qwen3VLEmbedder
-#   qihoo360/RzenEmbed                  -> RzenEmbedEmbedder
-#   VLM2Vec/VLM2Vec-V2.0                -> Vlm2VecV2Embedder (DoRA on Qwen2-VL-2B, keys remapped at load)
-#   <local>/medsiglip-448               -> SigLipEmbedder    (dual-tower SigLIP, 64-token text cap)
-#   <local>/siglip-so400m-patch14-384   -> SigLipEmbedder    (dual-tower SigLIP, 64-token text cap)
-#   <local>/blip2-itm-vit-g             -> Blip2Embedder     (ITC cosine; 32 Q-tokens mean-pooled)
-# All backbones run on transformers>=4.57.3.
-MODEL_NAME="${MODEL_NAME:?set MODEL_NAME to an HF repo id or local path}"
-MODEL_BASENAME="${MODEL_BASENAME:-$(basename "$MODEL_NAME")}"
-
-# ==============================================================================
-# Data Configuration
-# ==============================================================================
-DATA_BASEDIR="${DATA_BASEDIR:?set DATA_BASEDIR to the root containing 2D_Task/, 3D_Task/, Text_Task/, 2D_Images/, 3D_Images/}"
-BATCH_SIZE="${BATCH_SIZE:-8}"
-MODALITIES=("3D_Task" "2D_Task" "Text_Task")
-OUTPUT_BASEDIR="${OUTPUT_BASEDIR:-results/evaluation/mediem}"
+MODEL_NAME="MedEmb-2B"
+MODEL_BASENAME="MedEmb-2B"
+BATCH_SIZE=8
+DATA_BASEDIR="MedHEB/"
+MODALITIES=("2D_Task" "3D_Task" "Text_Task")
+OUTPUT_BASEDIR=results/evaluation/MedHEB
 
 BASE_OUTPUT_PATH="$OUTPUT_BASEDIR/$MODEL_BASENAME"
 
 echo "================================================="
-echo "🚀 Processing Model: $MODEL_NAME"
+echo "? Processing Model: $MODEL_NAME"
 echo "   Output Base: $BASE_OUTPUT_PATH"
 echo "================================================="
 echo ""
@@ -117,7 +92,7 @@ for MODALITY in "${MODALITIES[@]}"; do
 
     echo "  - Executing command on node $RANK..."
     eval "$cmd"
-
+    
     if [ $? -eq 0 ]; then
         echo "  - ✅ Done on node $RANK."
     else
@@ -130,19 +105,19 @@ done
 
 if [ "$RANK" -eq 0 ]; then
     echo "✅ All jobs completed on master node."
-
+    
     # ==============================================================================
     # Gather Results (only on master node)
     # ==============================================================================
     echo ""
     echo "================================================="
-    echo "📊 Gathering evaluation results..."
+    echo "? Gathering evaluation results..."
     echo "================================================="
-
+    
     python -m src.evaluation.mediem.gather_med_results \
         "$BASE_OUTPUT_PATH" \
         --output_dir "$BASE_OUTPUT_PATH"
-
+    
     if [ $? -eq 0 ]; then
         echo "✅ Results gathered successfully."
     else
