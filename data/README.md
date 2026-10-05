@@ -101,7 +101,7 @@ The following datasets are supported and should be processed using the provided 
 **Description**: `cut_slides.py` — This script converts the original 3D CT volumes from each case into 2D CT slices. `CT2Xray.py` — This script converts the original 3D CT volumes into 2D chest X-ray projection images. `INPUT_ROOT` should be set to `./CT_DATA/data_volumes/dataset`.
 
 **4. ChirrMRI600**
-   - a. [3D_Task/ChirrMRI600/cut_slides_split.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/3D_Task/ChirrMRI600/cut_slides_split.py)
+   - a. [3D_Task/ChirrMRI600/cut_slides_split.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/3D_Task/ChirrMRI600)
   
 **Description**: ChirrMRI600 contains liver MRI cases with different cirrhosis grades and healthy controls. We label healthy cases as 'No liver cirrhosis'. `Cirrhosis_T1_slide_folders.csv` and `Cirrhosis_T2_slide_folders.csv` define the split after adding the healthy cases. `cut_slides_split.py` converts 3D liver MRI volumes into 2D slices and organizes them according to the CSV split. Place the two CSV files in the original data folder and set this folder as the input path.
 
@@ -138,56 +138,56 @@ The following datasets are supported and should be processed using the provided 
 ## Image_Classification
 
 **1. MNIST**
-   - a. [Image_Classification/MNIST/unzip_MNIST.py](https://github.com/ziz-797/Processing_Code/blob/main/Image_Classification/MNIST/unzip_MNIST.py)
+   - a. [Image_Classification/MNIST/unzip_MNIST.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/MNIST/unzip_MNIST.py)
 
 **Description**: `unzip_MNIST.py` — This script processes all 2D MedMNIST classification datasets. It extracts the downloaded Zenodo `.npz` files, organizes images according to the official train/validation/test split, and further separates them into class-specific folders. The input root should be set to the path of the downloaded `.npz` files.
 
 2. **PanNuke**
-   - a. [Image_Classification/PanNuke/Preprocess.py](https://github.com/ziz-797/Processing_Code/blob/main/Image_Classification/PanNuke/Preprocess.py)
+   - a. [Image_Classification/PanNuke/Preprocess.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/PanNuke)
 
 **Description**: `Preprocess.py` — This script merges images from the three `.parquet` files and organizes them into class-specific folders. `PanNuke_split.csv` defines the dataset split and should be placed in the downloaded data folder. The input root should be set to the directory containing the three `.parquet` files.
 
 ## VQA
 
 1. **ROCO_QA**
-   - a. [VQA/ROCO_QA/unzip.py](https://github.com/ziz-797/Processing_Code/blob/main/VQA/ROCO_QA/unzip.py)
+   - a. [VQA/ROCO_QA/unzip.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/ROCO_QA/unzip.py)
 
 **Description**: `unzip.py` — This script extracts the five `.parquet` files. The input root should be set to `./ROCO-QA/data`, and `FILE_ORDER` should match the order specified in the script.
 
 ## Vision_Grounding
 
 **1. ChestImagenome**
-   - a. [Vision_Grounding/ChestImagenome/Preprocess.py](https://github.com/ziz-797/Processing_Code/blob/main/Vision_Grounding/ChestImagenome/Preprocess.py)
+   - a. [Vision_Grounding/ChestImagenome/Preprocess.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/ChestImagenome/Preprocess.py)
 
 **Description**: `Preprocess.py` — This script crops the original images according to the official bounding-box annotations. `gold_crop` is used as the benchmark test set, while `silver_sample_crop` is used as the training set. The input root should be set to `./Chest_imagenome`.
 
 **2. Gastrointestinal**
-   - a. [Vision_Grounding/Gastrointestinal/Preprocess.py](https://github.com/ziz-797/Processing_Code/blob/main/Vision_Grounding/Gastrointestinal/Preprocess.py)
+   - a. [Vision_Grounding/Gastrointestinal/Preprocess.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/Gastrointestinal/Preprocess.py)
 
 **Description**: `Preprocess.py` — This script converts segmentation masks from `PolypGenMSBench` and `Kvasir-SEG` into bounding boxes and cropped images. The split for `Kvasir-SEG` is defined in `split.csv`, which should be placed in the data folder. `PolypGenMSBench` is automatically downloaded and processed. For `Kvasir-SEG`, set the image root to `./Kvasir-SEG/images` and the annotation file to `./Kvasir-SEG/kvasir_bboxes.json`.
 
 **3. PanNuke**
-   - a. [Vision_Grounding/PanNuke/Preprocess.py](https://github.com/ziz-797/Processing_Code/blob/main/Vision_Grounding/PanNuke/Preprocess.py)
+   - a. [Vision_Grounding/PanNuke/Preprocess.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/PanNuke_VG/Preprocess.py)
 
 **Description**: `Preprocess.py` — This script merges images from the three `.parquet` files and converts segmentation masks into bounding-box crops. The input root should be set to `./PanNuke/data`.
 
 **4. Skin_Image**
-   - a. [Vision_Grounding/Skin_Image/Preprocess.py](https://github.com/ziz-797/Processing_Code/blob/main/Vision_Grounding/Skin_Image/Preprocess.py)
+   - a. [Vision_Grounding/Skin_Image/Preprocess.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/Skin_Image/Preprocess.py)
 
 **Description**: `Preprocess.py` — This script converts segmentation masks from `ISIC2018MSBench` and `UWSkinCancerMSBench` into bounding boxes and cropped images. Both datasets are automatically downloaded and processed.
 
 **5. Ultrasound**
-   - a. [Vision_Grounding/Ultrasound/Preprocess.py](https://github.com/ziz-797/Processing_Code/blob/main/Vision_Grounding/Ultrasound/Preprocess.py)
+   - a. [Vision_Grounding/Ultrasound/Preprocess.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/Ultrasound/Preprocess.py)
 
 **Description**: `Preprocess.py` — This script converts segmentation masks from `USforKidneyMSBench` and `UltrasoundNerveMSBench` into bounding boxes and cropped images. Both datasets are automatically downloaded and processed.
 
 **6. VindrCXR**
-   - a. [Vision_Grounding/VindrCXR/Preprocess.py](https://github.com/ziz-797/Processing_Code/blob/main/Vision_Grounding/VindrCXR/Preprocess.py)
+   - a. [Vision_Grounding/VindrCXR/Preprocess.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/VindrCXR/Preprocess.py)
 
 **Description**: `Preprocess.py` — This script crops the images and follows the official dataset split. The input root should be set to `./VinDr-CXR`.
 
 **7. VindrMammo**
-    - a. [Vision_Grounding/VindrMammo/Preprocess.py](https://github.com/ziz-797/Processing_Code/blob/main/Vision_Grounding/VindrMammo/Preprocess.py)
+    - a. [Vision_Grounding/VindrMammo/Preprocess.py](https://github.com/ziz-797/MedEEEEMbed/blob/main/data/Preprocess/2D_Task/VindrMammo/Preprocess.py)
 
 **Description**: `Preprocess.py` — This script crops the images and follows the official dataset split. The input root should be set to `./VindrMammo`.
 
