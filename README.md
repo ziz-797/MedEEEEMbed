@@ -1,4 +1,4 @@
-# MedHEB: Benchmarking Medical Embeddings Across Heterogeneous Clinical Evidence
+<img width="822" height="78" alt="image" src="https://github.com/user-attachments/assets/2d78c448-1400-4df8-a2fa-a3c9abefcee9" /># MedHEB: Benchmarking Medical Embeddings Across Heterogeneous Clinical Evidence
 
 MedHEB is a medical embedding evaluation benchmark covering 2D images, 3D volumes, and text.
 
@@ -60,6 +60,15 @@ For 3D volumes, `qry_img_path` is a list of slice paths, with `qry_modality: "vi
   "tgt_text": ["answer_1", "answer_2", "..."]
 }
 ```
+
+## Model Weights
+
+The model weights for the two MedEmb variants are hosted in separate Hugging Face repositories:
+
+- **MedEmb-2B:** [Model weights](https://huggingface.co/MEDHEB/MedEmb-2B)
+- **MedEmb-8B:** [Model weights](https://huggingface.co/MEDHEB/MedEmb-8B)
+
+Please refer to the corresponding model repository for usage instructions, model configuration, and licensing information.
 
 ## Evaluation Config
 
