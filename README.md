@@ -1,4 +1,4 @@
-<img width="822" height="78" alt="image" src="https://github.com/user-attachments/assets/2d78c448-1400-4df8-a2fa-a3c9abefcee9" /># MedHEB: Benchmarking Medical Embeddings Across Heterogeneous Clinical Evidence
+# MedHEB: Benchmarking Medical Embeddings Across Heterogeneous Clinical Evidence
 
 MedHEB is a medical embedding evaluation benchmark covering 2D images, 3D volumes, and text.
 
